@@ -12,6 +12,7 @@ html(lang="jp")
         textarea(name="content", cols=40, rows=4)
       div
         button(type="submit") 投稿
+        button(type="reset") 取消
     h2 投稿一覧
     each post in posts
       - var isPostedByAdmin = (post.postedBy === 'admin')
@@ -19,7 +20,7 @@ html(lang="jp")
         h3 #{post.id} : 管理人 ★
       else
         h3 #{post.id} : ID:#{post.trackingCookie}
-      p #{post.content}
+      p!= post.content
       p 投稿日時: #{post.createdAt}
       - var isAdmin = (user === 'admin')
       if isAdmin
