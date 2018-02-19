@@ -13,17 +13,28 @@ html(lang="jp")
       div
         button(type="submit") 投稿
     h2 投稿一覧
+    //- postsとして投げられた変数を１件ずつ処理
     each post in posts
-      - var isPostedByAdmin = (post.postedBy === 'admin')
+      //- postを投稿したユーザーが管理人かどうか
+      - var isPostedByAdmin = (post.postedBy === 'admin') 
+      //- 管理人なら
       if isPostedByAdmin
-        h3 #{post.id} : 管理人 ★
+        //- 変数埋め込み
+        //- 管理人であることを表示する
+        h3 #{post.id} ： 管理人 ★
       else
-        h3 #{post.id} : ID:#{post.trackingCookie}
-      p #{post.content}
+        //- 管理人でないならクッキー値をIDとして表示する
+        h3 #{post.id} ： ID:#{post.trackingCookie}
+      //- HTMLタグを認識させる
+      p!= post.content
       p 投稿日時: #{post.createdAt}
+      //- 閲覧中のユーザーが管理人かどうか
       - var isAdmin = (user === 'admin')
+      //- 管理人なら
       if isAdmin
-        p 投稿者: #{post.postedBy}
+        //- 投稿者を表示する
+        p 投稿者： #{post.postedBy}
+      //- JavaScriptもかける
       - var isDeletable = (user === post.postedBy || isAdmin)
       if isDeletable
         form(method="post", action="/posts?delete=1")
