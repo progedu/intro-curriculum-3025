@@ -14,6 +14,7 @@ html(lang="ja")
         button(type="submit") 投稿
     h2 投稿一覧
     each post in posts
+      p!= post.content
       - var isPostedByAdmin = (post.postedBy === 'admin')
       if isPostedByAdmin
         h3 #{post.id} : 管理人 ★
