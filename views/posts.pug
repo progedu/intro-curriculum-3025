@@ -13,6 +13,12 @@ html(lang="ja")
       div
         button(type="submit") 投稿
     h2 投稿一覧
+    - 
+      posts.forEach((post) => {
+      post.content = post.content.replace(/</g, '&ensp;');
+      post.content = post.content.replace(/>/g, '&ensp;');
+      post.content = post.content.replace(/\n/g, '<br>');
+      });
     each post in posts
       - var isPostedByAdmin = (post.postedBy === 'admin')
       if isPostedByAdmin
