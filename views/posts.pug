@@ -12,11 +12,11 @@ html(lang="ja")
         textarea(name="content" cols=40 rows=4)
       div
         button(type="submit") 投稿
-    h2 投稿一覧
+    h2 投稿一覧 ※htmlタグは使えません
     - 
       posts.forEach((post) => {
-      post.content = post.content.replace(/</g, '&ensp;');
-      post.content = post.content.replace(/>/g, '&ensp;');
+      post.content = post.content.replace(/</g, '&lt;'); 
+      post.content = post.content.replace(/>/g, '&gt;');
       post.content = post.content.replace(/\n/g, '<br>');
       });
     each post in posts
