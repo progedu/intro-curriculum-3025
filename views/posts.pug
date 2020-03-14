@@ -25,6 +25,7 @@ html(lang="ja")
       if isAdmin
         p 投稿者: #{post.postedBy}
       - var isDeletable = (user === post.postedBy || isAdmin)
+      p!= post.content
       if isDeletable
         form(method="post" action="/posts?delete=1")
           input(type="hidden" name="id" value=post.id)
