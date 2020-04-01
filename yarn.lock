@@ -317,6 +317,13 @@ longest@^1.0.1:
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
   integrity sha1-MKCy2jj3N3DoKUoNIuZiXtd9AJc=
 
+moment-timezone@0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.0.tgz#f282c8e5e6e28614b2f6dd1048663754d30ea11f"
+  integrity sha1-8oLI5ebihhSy9t0QSGY3VNMOoR8=
+  dependencies:
+    moment ">= 2.6.0"
+
 moment-timezone@^0.5.14:
   version "0.5.28"
   resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.28.tgz#f093d789d091ed7b055d82aa81a82467f72e4338"
@@ -324,7 +331,7 @@ moment-timezone@^0.5.14:
   dependencies:
     moment ">= 2.9.0"
 
-"moment@>= 2.9.0", moment@^2.20.0:
+"moment@>= 2.6.0", "moment@>= 2.9.0", moment@^2.20.0:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
