@@ -12,14 +12,20 @@ html(lang="ja")
         textarea(name="content" cols=40 rows=4)
       div
         button(type="submit") 投稿
-    h2 投稿一覧
+    h2 投稿一覧 ※htmlタグは使えません
+    - 
+      posts.forEach((post) => {
+      post.content = post.content.replace(/</g, '&lt;'); 
+      post.content = post.content.replace(/>/g, '&gt;');
+      post.content = post.content.replace(/\n/g, '<br>');
+      });
     each post in posts
       - var isPostedByAdmin = (post.postedBy === 'admin')
       if isPostedByAdmin
         h3 #{post.id} : 管理人 ★
       else
         h3 #{post.id} : ID:#{post.trackingCookie}
-      p #{post.content}
+      p!= post.content
       p 投稿日時: #{post.createdAt}
       - var isAdmin = (user === 'admin')
       if isAdmin
