@@ -1,5 +1,5 @@
 doctype html
-html(lang="ja")
+html(lang="jp")
   head
     meta(charset="UTF-8")
     title 秘密の匿名掲示板
@@ -16,10 +16,10 @@ html(lang="ja")
     each post in posts
       - var isPostedByAdmin = (post.postedBy === 'admin')
       if isPostedByAdmin
-        h3 #{post.id} : 管理人 ★
+        h3 #{post.id} : 管理人　★
       else
         h3 #{post.id} : ID:#{post.trackingCookie}
-      p #{post.content}
+      p!= post.content
       p 投稿日時: #{post.createdAt}
       - var isAdmin = (user === 'admin')
       if isAdmin
