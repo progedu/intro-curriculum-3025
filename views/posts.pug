@@ -5,6 +5,7 @@ html(lang="ja")
     title 秘密の匿名掲示板
   body
     h1 秘密の匿名掲示板
+    h4 #{user} さん、ようこそ。
     a(href="/logout") ログアウト
     h2 新規投稿
     form(method="post" action="/posts")
@@ -19,7 +20,7 @@ html(lang="ja")
         h3 #{post.id} : 管理人 ★
       else
         h3 #{post.id} : ID:#{post.trackingCookie}
-      p #{post.content}
+      p!= post.content
       p 投稿日時: #{post.createdAt}
       - var isAdmin = (user === 'admin')
       if isAdmin
