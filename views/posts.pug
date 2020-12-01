@@ -6,6 +6,8 @@ html(lang="ja")
   body
     h1 秘密の匿名掲示板
     a(href="/logout") ログアウト
+    h2 ユーザー名: #{user} 
+    span UserAgent: #{ua}
     h2 新規投稿
     form(method="post" action="/posts")
       div
@@ -14,12 +16,12 @@ html(lang="ja")
         button(type="submit") 投稿
     h2 投稿一覧
     each post in posts
-      - var isPostedByAdmin = (post.postedBy === 'admin')
+      - let isPostedByAdmin = (post.postedBy === 'admin')
       if isPostedByAdmin
         h3 #{post.id} : 管理人 ★
       else
         h3 #{post.id} : ID:#{post.trackingCookie}
-      p #{post.content}
+      p!= post.content
       p 投稿日時: #{post.createdAt}
       - var isAdmin = (user === 'admin')
       if isAdmin
