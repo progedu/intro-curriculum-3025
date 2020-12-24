@@ -19,7 +19,9 @@ html(lang="ja")
         h3 #{post.id} : 管理人 ★
       else
         h3 #{post.id} : ID:#{post.trackingCookie}
-      p #{post.content}
+      - let postedContent = post.content.replace(/\n/g, '<br>')
+      //- p #{postedcontent}
+      p!= postedContent
       p 投稿日時: #{post.createdAt}
       - var isAdmin = (user === 'admin')
       if isAdmin
